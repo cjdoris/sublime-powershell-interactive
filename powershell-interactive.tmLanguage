@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array/>
+	<key>name</key>
+	<string>PowerShell Script (interactive)</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>begin</key>
+			<string>^(PS[^&gt;]*&gt;) </string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>interactive.prompt.powershell</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>$</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.powershell</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>interactive.output.error.powershell</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*\+\s+(FullyQualifiedErrorId\s*:.*)$</string>
+			<key>name</key>
+			<string>interactive.output.powershell</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>^.*$</string>
+			<key>name</key>
+			<string>interactive.output.powershell</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.interactive.powershell</string>
+	<key>uuid</key>
+	<string>7A824FC8-E4A6-4CDC-A476-BA8DFDFC77B2</string>
+</dict>
+</plist>

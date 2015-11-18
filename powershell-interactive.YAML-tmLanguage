@@ -1,0 +1,25 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: PowerShell Script (interactive)
+scopeName: source.interactive.powershell
+fileTypes: []
+uuid: 7A824FC8-E4A6-4CDC-A476-BA8DFDFC77B2
+
+patterns:
+- begin: '^(PS[^>]*>) '
+  end: '$'
+  patterns:
+  - include: source.powershell
+  beginCaptures:
+    '0':
+      name: interactive.prompt.powershell
+
+- match: '^\s*\+\s+(FullyQualifiedErrorId\s*:.*)$'
+  name: interactive.output.powershell
+  captures:
+    '1':
+      name: interactive.output.error.powershell
+
+- match: '^.*$'
+  name: interactive.output.powershell
+...
